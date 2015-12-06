@@ -9,7 +9,7 @@
 #include <QSqlRelationalTableModel>
 #include <QDataWidgetMapper>
 #include <QSqlQueryModel>
-#include<QSqlQuery>
+#include <QSqlQuery>
 #include <QSettings>
 #include <hnewanagrafica.h>
 #include <QCompleter>
@@ -17,6 +17,7 @@
 #include <QSqlRelationalDelegate>
 #include <QSqlError>
 #include "huser.h"
+#include <QDebug>
 
 HUtenti::HUtenti(QWidget *parent) :
     QWidget(parent),
@@ -54,6 +55,8 @@ void HUtenti::onConnectionNameSet()
 void HUtenti::initForm()
 {
     bool upd=user->getCanUpdateAnag();
+    ui->cbsub->setVisible(false);
+    ui->cbxMasterCli->setVisible(false);
 
     if(!upd)
     {
@@ -82,13 +85,13 @@ void HUtenti::initForm()
     ui->lvUtenti->setModelColumn(1);
 
 
-    QCompleter *completer=new QCompleter(cmod);
-    completer->setCompletionColumn(1);
-    completer->setCaseSensitivity(Qt::CaseInsensitive);
+  //  QCompleter *completer=new QCompleter(cmod);
+  //  completer->setCompletionColumn(1);
+  // completer->setCaseSensitivity(Qt::CaseInsensitive);
 
-    ui->cbxMasterCli->setCompleter(completer);
-    ui->cbxMasterCli->setModel(cmod);
-    ui->cbxMasterCli->setModelColumn(1);
+  //  ui->cbxMasterCli->setCompleter(completer);
+  //  ui->cbxMasterCli->setModel(cmod);
+  //  ui->cbxMasterCli->setModelColumn(1);
 
 
     dwMapper = new QDataWidgetMapper();
@@ -111,7 +114,7 @@ void HUtenti::initForm()
    // dwMapper->addMapping(ui->cbxMasterCli,tm->fieldIndex("IDCliente"),"currentIndex");
   /*  QSqlQuery q(db);
     QString sql="SELECT ID,descrizione from anagrafica where subcliente=1 and ID=:id";*/
-    int id=tm->index(ui->lvUtenti->currentIndex().row(),14).data(0).toInt();
+   // int id=tm->index(ui->lvUtenti->currentIndex().row(),14).data(0).toInt();
    /* q.prepare(sql);
 
     q.bindValue(":id",QVariant(id));
@@ -177,7 +180,7 @@ void HUtenti::updateSubclient()
     q.bindValue(":idc",idc);
     q.bindValue(":id",id);
      q.exec();
-    //qDebug()<<QString::number(id)<<QString::number(idc)<<q.lastQuery()<<q.lastError().text();
+    qDebug()<<QString::number(id)<<QString::number(idc)<<q.lastQuery()<<q.lastError().text();
 }
 
 void HUtenti::productSearch()
@@ -198,18 +201,15 @@ void HUtenti::hidesubclienti()
 
 void HUtenti::on_pushButton_3_clicked()
 {
-  //  db.transaction();
+    db.transaction();
 
 
-      // tm->submitAll();
+       tm->submitAll();
     //qDebug()<<"updatesubclient";
-       updateSubclient();
+    //   updateSubclient();
 
-  //  db.commit();
-
-
-
-
+    db.commit();
+    qDebug()<<tm->query().lastError().text();
 
 }
 

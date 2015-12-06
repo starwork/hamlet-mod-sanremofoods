@@ -10,7 +10,7 @@
 #include <QCompleter>
 #include <QSqlError>
 #include <QMessageBox>
-//#include <QDebug>
+#include <QDebug>
 
 HPackages::HPackages(QWidget *parent) :
     QWidget(parent),
@@ -81,7 +81,8 @@ void HPackages::init(QString conn,QString user)
     ui->dateEdit->setDate(QDate::currentDate().addYears(2));
 
     ui->lvSubclienti->setVisible(false);
-    connect(ui->cbClienti,SIGNAL(currentIndexChanged(int)),this,SLOT(filterProducts()));
+  //  connect(ui->cbClienti,SIGNAL(currentIndexChanged(int)),this,SLOT(filterProducts()));
+    ui->cbClienti->setVisible(false);
     connect(ui->cbProdotti,SIGNAL(currentIndexChanged(int)),this,SLOT(createNewLot()));
 
     ui->pbAnnulla->setEnabled(false);
@@ -109,8 +110,10 @@ void HPackages::filterProducts()
   }
 
 
-    tmProdotti->setFilter("ID in (SELECT ricette.ID_prodotto FROM ricette, associazioni where ricette.ID=associazioni.ID_ricetta and associazioni.ID_cliente="+idcliente +")");
-    ui->cbProdotti->setCurrentIndex(0);
+//    tmProdotti->setFilter("ID in (SELECT ricette.ID_prodotto FROM ricette, associazioni where ricette.ID=associazioni.ID_ricetta and associazioni.ID_cliente="+idcliente +")");
+  tmProdotti->setFilter("ID in (SELECT ricette.ID_prodotto FROM ricette)");
+
+  ui->cbProdotti->setCurrentIndex(0);
 
 }
 
@@ -246,7 +249,8 @@ void HPackages::createNewLot()
 
    ean.append(n);
 
-    ui->leLest->setText(ean);
+ //   ui->leLest->setText(ean);
+   ui->leLest->setText("");
 
 
 
@@ -256,7 +260,7 @@ void HPackages::createNewLot()
 void HPackages::on_pbCrea_clicked()
 {
     createNewLot();
-    createNewLotInterno();
+   // createNewLotInterno();
     mod=new QStandardItemModel();
     ui->tvPack->setModel(mod);
     ui->tvPack->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
@@ -490,7 +494,7 @@ bool HPackages::saveNewLotInLotdef(QString lotto)
 
     b = q.exec();
 
-//qDebug()<<"saveNewLot"<<q.lastError().text();
+qDebug()<<"saveNewLot"<<q.lastError().text();
 
 
     return b;
@@ -525,7 +529,7 @@ bool HPackages::chargeNewLot(int id)
 
          b=q.exec();
 
-         //qDebug()<<q.lastError().text()<<q.lastInsertId().toString()<<QString::number(idp);
+         qDebug()<<q.lastError().text()<<q.lastInsertId().toString()<<QString::number(idp);
 
 
 
@@ -567,7 +571,7 @@ bool HPackages::unloadNewLotComponents(int nlot)
         q.bindValue(":um",QVariant(1));
 
         b=q.exec();
-//  qDebug()<<"unload"<<q.lastError().text()<<q.boundValue(3).toString()<<QString::number(prodottodascaricare);
+  qDebug()<<"unload"<<q.lastError().text()<<q.boundValue(3).toString()<<QString::number(prodottodascaricare);
 
    operazione=q.lastInsertId().toInt();
    sql="insert into composizione_lot (id_lotto,operazione) values (:nlot,:operazione)";
@@ -576,7 +580,7 @@ bool HPackages::unloadNewLotComponents(int nlot)
    q.bindValue(":operazione",QVariant(operazione));
    b=q.exec();
 
-//   qDebug()<<q.lastError().text()<<q.lastInsertId().toString();
+   qDebug()<<q.lastError().text()<<q.lastInsertId().toString();
         if (!b)return false;
 
     }

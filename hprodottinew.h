@@ -46,6 +46,7 @@ private slots:
 
     void on_lineEdit_textChanged(const QString &arg1);
 
+
 private:
     Ui::HProdottiNew *ui;
     QString sConn;

@@ -76,7 +76,7 @@ void HProdottiNew::on_radioButton_2_toggled(bool checked)
 {
     if (checked)
     {
-        tmProdotti->setFilter("tipo=1");
+        tmProdotti->setFilter("tipo=0");
     }
 
     //qDebug()<<"tipo"+tmProdotti->filter();
@@ -87,7 +87,7 @@ void HProdottiNew::on_radioButton_3_toggled(bool checked)
 {
     if (checked)
     {
-        tmProdotti->setFilter("tipo=2");
+        tmProdotti->setFilter("tipo=1");
     }
 }
 
@@ -116,7 +116,7 @@ void HProdottiNew::on_radioButton_6_toggled(bool checked)
 {
     if (checked)
     {
-        tmProdotti->setFilter("tipo=5");
+        tmProdotti->setFilter("tipo in (2,5)");
     }
 }
 
@@ -180,3 +180,5 @@ void HProdottiNew::on_lineEdit_textChanged(const QString &arg1)
 
     tmProdotti->setFilter(filter);
 }
+
+

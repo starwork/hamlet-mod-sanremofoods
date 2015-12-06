@@ -80,7 +80,9 @@ void HAnalisi::getYearlyProduction()
         QSqlQuery q(db);
         QSqlQueryModel *yprod=new QSqlQueryModel();
        // QString sql="SELECT distinct prodotti.ID,prodotti.descrizione from lotdef,prodotti,associazioni,ricette where associazioni.ID_ricetta=ricette.ID and ricette.ID_prodotto=prodotti.ID and prodotti.ID=ricette.ID_prodotto and associazioni.ID_cliente=:cliente and associazioni.ID_ricetta=ricette.ID and associazioni.visualizza=1 and lotdef.data between :datedal AND :dateal";
-       QString sql="SELECT DISTINCT prodotti.ID,prodotti.descrizione from prodotti,lotdef where prodotti.ID=lotdef.prodotto and prodotti.tipo=2 and lotdef.anagrafica=:cliente and lotdef.data between :datedal and :dateal";
+      // QString sql="SELECT DISTINCT prodotti.ID,prodotti.descrizione from prodotti,lotdef where prodotti.ID=lotdef.prodotto /*and prodotti.tipo=2*/ and lotdef.anagrafica=:cliente and lotdef.data between :datedal and :dateal";
+        QString sql="SELECT DISTINCT prodotti.ID,prodotti.descrizione from prodotti,lotdef where prodotti.ID=lotdef.prodotto and lotdef.anagrafica=:cliente and lotdef.data between :datedal and :dateal";
+
         QString cliente;
         QDate datedal,dateal;
         cliente=ui->cbClienti->model()->index(ui->cbClienti->currentIndex(),0).data(0).toString();

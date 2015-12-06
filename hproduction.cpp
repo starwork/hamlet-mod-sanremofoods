@@ -380,10 +380,13 @@ void HProduction::getRecipesForClient()
 
 
  //   QString qs="SELECT select prodotti.ID,ricette.ID,prodotti.descrizione from ricette,associazioni,prodotti,anagrafica where prodotti.ID=ricette.ID_prodotto and ricette.ID=associazioni.ID_ricetta and associazioni.ID_cliente=anagrafica.ID and associazioni.ID_cliente="+idcliente;
-  QString qs="select ricette.ID,prodotti.ID,prodotti.descrizione from prodotti, ricette, associazioni where ricette.ID=associazioni.ID_ricetta and prodotti.ID=ricette.ID_prodotto and associazioni.visualizza=1 and associazioni.visualizza=1 and associazioni.ID_cliente=:idcliente";
+//  QString qs="select ricette.ID,prodotti.ID,prodotti.descrizione from prodotti, ricette, associazioni where ricette.ID=associazioni.ID_ricetta and prodotti.ID=ricette.ID_prodotto and associazioni.visualizza=1 and associazioni.visualizza=1 and associazioni.ID_cliente=:idcliente";
+
+    QString qs="select ricette.ID,prodotti.ID,prodotti.descrizione from prodotti, ricette  where  prodotti.ID=ricette.ID_prodotto";
+
     QSqlQuery q(db);
     q.prepare(qs);
-    q.bindValue(":idcliente",QVariant(idcliente));
+  //  q.bindValue(":idcliente",QVariant(idcliente));
 
     qmRicette=new QSqlQueryModel();
 

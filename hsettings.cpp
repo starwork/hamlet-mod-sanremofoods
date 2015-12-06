@@ -41,6 +41,7 @@ void HSettings::on_pushButton_clicked()
    settings.setValue("conn",sConnessione);
 
    QMessageBox::information(this,QApplication::applicationName(),"Impostazioni salvate",QMessageBox::Ok);
+   close();
 
 }
 

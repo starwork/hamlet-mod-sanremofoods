@@ -58,7 +58,7 @@ void HLotti::setupForm()
     tbm->setFilter("lotdef.attivo=1");
 
     tbm->setRelation(2,QSqlRelation("prodotti","ID","descrizione"));
-    tbm->setRelation(5,QSqlRelation("unita_di_misura","ID","descrizione"));
+    //tbm->setRelation(5,QSqlRelation("unita_di_misura","ID","descrizione"));
     tbm->setRelation(7,QSqlRelation("anagrafica","ID","ragione_sociale"));
     tbm->setRelation(10,QSqlRelation("tipi_lot","ID","descrizione"));
 

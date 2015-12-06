@@ -100,8 +100,10 @@ void HWarehouse::init(QString conn, QString utente)
     comp->setCompletionColumn(1);
     comp->setCaseSensitivity(Qt::CaseInsensitive);
     ui->cbFilter->setCompleter(comp);
+    ui->tableView->setColumnHidden(0,true);
 
     QApplication::setOverrideCursor(QCursor(Qt::ArrowCursor));
+    qDebug()<<tmOperazioni->query().lastError().text()<<tmOperazioni->query().lastQuery();
 
 
 }
@@ -165,6 +167,9 @@ void HWarehouse::setOperazioniFilter(int tipo)
 
 
     tmOperazioni->setFilter(filter);
+    tmOperazioni->select();
+
+    qDebug()<<tmOperazioni->query().lastError().text()<<tmOperazioni->query().lastQuery()<<datefilter;
 
     //qDebug()<<tmOperazioni->lastError().text()<<tmOperazioni->query().lastQuery();
     //tmOperazioni->select();
