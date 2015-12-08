@@ -51,6 +51,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
   user->init(sConn);
 
 this->showMaximized();
+  ui->pbSchede->setVisible(false);
 
 disableUI();
 

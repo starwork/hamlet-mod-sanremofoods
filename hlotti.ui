@@ -17,7 +17,7 @@
    <string>Lotti</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="icons.qrc">
+   <iconset resource="resources.qrc">
     <normaloff>:/Resources/Cube.PNG</normaloff>:/Resources/Cube.PNG</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -29,6 +29,20 @@
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Lotto:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="leCercaLot">
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
            <item>
             <widget class="QCheckBox" name="chbT">
              <property name="maximumSize">
@@ -110,7 +124,7 @@
               <string>Cerca</string>
              </property>
              <property name="icon">
-              <iconset resource="icons.qrc">
+              <iconset resource="resources.qrc">
                <normaloff>:/Resources/Search.PNG</normaloff>:/Resources/Search.PNG</iconset>
              </property>
             </widget>
@@ -154,7 +168,7 @@
           <string>Modifica</string>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset resource="resources.qrc">
            <normaloff>:/Resources/Pencil.PNG</normaloff>:/Resources/Pencil.PNG</iconset>
          </property>
          <property name="iconSize">
@@ -171,7 +185,7 @@
           <string>Nuova operazione</string>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset resource="resources.qrc">
            <normaloff>:/Resources/Actions-configure-icon.png</normaloff>:/Resources/Actions-configure-icon.png</iconset>
          </property>
          <property name="iconSize">
@@ -188,7 +202,7 @@
           <string>Stampa</string>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset resource="resources.qrc">
            <normaloff>:/Resources/Printer-icon.png</normaloff>:/Resources/Printer-icon.png</iconset>
          </property>
          <property name="iconSize">
@@ -205,7 +219,7 @@
           <string>Chiudi</string>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset resource="resources.qrc">
            <normaloff>:/Resources/Actions-window-close-icon.png</normaloff>:/Resources/Actions-window-close-icon.png</iconset>
          </property>
          <property name="iconSize">
@@ -231,7 +245,7 @@
   </action>
  </widget>
  <resources>
-  <include location="icons.qrc"/>
+  <include location="resources.qrc"/>
  </resources>
  <connections/>
  <slots>

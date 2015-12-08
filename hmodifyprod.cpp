@@ -39,7 +39,7 @@ void HModifyProd::init(QString conn,HUser *usr)
     ui->deAl->setDate(QDate::currentDate());
     dfrom=ui->deDal->date();
     dto=ui->deAl->date();
-    tipo="lotdef.tipo=4";
+    tipo="lotdef.tipo in (1,2,4,7)";
 
 
 
@@ -137,7 +137,7 @@ void HModifyProd::getComponetsLot()
     q.bindValue(":lotid",QVariant(idlot));
     q.exec();
     qmod->setQuery(q);
-    qDebug()<<q.lastQuery();
+    qDebug()<<q.lastQuery()<<q.lastError().text();
 
     ui->tvDetails->setModel(qmod);
     connect(ui->tvDetails->selectionModel(),SIGNAL(currentChanged(QModelIndex,QModelIndex)),this,SLOT(getLotRowData()));
@@ -390,7 +390,7 @@ void HModifyProd::on_radioButton_clicked()
 {
 
    // tmLots->select();
-    tipo="lotdef.tipo=4";
+    tipo="lotdef.tipo=1";
     tmLots->setFilter(tipo + " and lotdef.data between '" + dfrom.toString("yyyy-MM-dd") + "' and '" + dto.toString("yyyy-MM-dd")+"'");
     //qDebug()<<tmLots->query().lastError().text();
 }
@@ -398,7 +398,7 @@ void HModifyProd::on_radioButton_clicked()
 void HModifyProd::on_radioButton_2_clicked()
 {
   //  tmLots->select();
-    tipo="lotdef.tipo=3";
+    tipo="lotdef.tipo=4";
     tmLots->setFilter(tipo + " and lotdef.data between '" + dfrom.toString("yyyy-MM-dd") + "' and '" + dto.toString("yyyy-MM-dd")+"'");
 
     //qDebug()<<tmLots->query().lastError().text();
@@ -516,5 +516,4 @@ void HModifyProd::on_pushButton_7_clicked()
 {
     ui->leSearch->setText("");
 }
-
 

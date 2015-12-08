@@ -112,7 +112,7 @@ void HModRicette::getRicette()
     qmric=new  QSqlQueryModel();
     QSqlQuery q(db);
     //
-    q.exec("SELECT ricette.ID,prodotti.descrizione from prodotti,ricette WHERE prodotti.ID=ricette.ID_prodotto AND prodotti.tipo=2 ORDER BY prodotti.descrizione ASC");
+    q.exec("SELECT ricette.ID,prodotti.descrizione from prodotti,ricette WHERE prodotti.ID=ricette.ID_prodotto and prodotti.tipo in (1,3,4) ORDER BY prodotti.descrizione ASC");
     qmric->setQuery(q);
 
     ui->cbRicette->setModel(qmric);
@@ -352,6 +352,7 @@ void HModRicette::loadRicetta()
         list.append(show);
 
         mod->appendRow(list);
+        qDebug()<<QString::number(mod->rowCount());
 
     }
 

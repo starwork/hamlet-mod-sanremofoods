@@ -1,6 +1,6 @@
 #include "hlotti.h"
 #include "hmagazzino.h"
-#include "ui_hlotdefs.h"
+#include "ui_hlotti.h"
 #include <QDebug>
 #include <QSqlError>
 #include <QSqlquery>
@@ -58,7 +58,7 @@ void HLotti::setupForm()
     tbm->setFilter("lotdef.attivo=1");
 
     tbm->setRelation(2,QSqlRelation("prodotti","ID","descrizione"));
-    //tbm->setRelation(5,QSqlRelation("unita_di_misura","ID","descrizione"));
+    tbm->setRelation(5,QSqlRelation("unita_di_misura","ID","descrizione"));
     tbm->setRelation(7,QSqlRelation("anagrafica","ID","ragione_sociale"));
     tbm->setRelation(10,QSqlRelation("tipi_lot","ID","descrizione"));
 
@@ -304,4 +304,10 @@ void HLotti::on_pushButton_7_clicked()
     f->show();
     f->init(ui->twLots->model()->index(ui->twLots->selectionModel()->currentIndex().row(),0).data(0).toInt(),sConnection);
 
+}
+
+void HLotti::on_leCercaLot_textChanged(const QString &arg1)
+{
+    tbm->setFilter("lot like '" + arg1 +"%'");
+   qDebug()<< tbm->query().lastError().text();
 }

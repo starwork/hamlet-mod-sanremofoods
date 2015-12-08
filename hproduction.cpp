@@ -74,7 +74,7 @@ void HProduction::init(QString conn, QString userid)
      tmTipiLotti=new QSqlTableModel(0,db);
      tmTipiLotti->setTable("tipi_lot");
      tmTipiLotti->select();
-     tmTipiLotti->setFilter("ID=3");
+    // tmTipiLotti->setFilter("ID=3");
      tmTipiLotti->setSort(1,Qt::AscendingOrder);
 
      ui->cbTipoLotto->setModel(tmTipiLotti);

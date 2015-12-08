@@ -67,6 +67,7 @@ private slots:
     void on_leSearch_textChanged(const QString &arg1);
     void on_pushButton_7_clicked();
 
+
 };
 
 #endif // HMODIFYPROD_H

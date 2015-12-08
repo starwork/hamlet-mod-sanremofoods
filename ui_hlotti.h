@@ -19,6 +19,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
@@ -35,6 +36,8 @@ public:
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_4;
     QHBoxLayout *horizontalLayout_2;
+    QLabel *label_3;
+    QLineEdit *leCercaLot;
     QCheckBox *chbT;
     QComboBox *cbTipiLot;
     QCheckBox *chbP;
@@ -73,6 +76,17 @@ public:
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        label_3 = new QLabel(HLotti);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        horizontalLayout_2->addWidget(label_3);
+
+        leCercaLot = new QLineEdit(HLotti);
+        leCercaLot->setObjectName(QStringLiteral("leCercaLot"));
+        leCercaLot->setClearButtonEnabled(true);
+
+        horizontalLayout_2->addWidget(leCercaLot);
+
         chbT = new QCheckBox(HLotti);
         chbT->setObjectName(QStringLiteral("chbT"));
         chbT->setMaximumSize(QSize(50, 16777215));
@@ -208,6 +222,7 @@ public:
         HLotti->setWindowTitle(QApplication::translate("HLotti", "Lotti", 0));
         actionCopia_il_testo->setText(QApplication::translate("HLotti", "Copia il testo", 0));
         actionCopia_il_testo->setShortcut(QApplication::translate("HLotti", "Alt+C", 0));
+        label_3->setText(QApplication::translate("HLotti", "Lotto:", 0));
         chbT->setText(QApplication::translate("HLotti", "Tipo:", 0));
         chbP->setText(QApplication::translate("HLotti", "Prodotto:", 0));
         label->setText(QApplication::translate("HLotti", "Dal:", 0));
