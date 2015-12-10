@@ -129,12 +129,14 @@ void HModifyProd::init(QString conn,HUser *usr)
 
 void HModifyProd::getComponetsLot()
 {
+    qDebug()<<"getcomponntslot";
     QSqlQuery q(db);
   //  idlot=ui->tvLots->model()->index(ui->tvLots->currentIndex().row(),0).data(0).toInt();
     QString sql="select operazioni.ID,operazioni.IDlotto,lotdef.lot,prodotti.ID,prodotti.descrizione,operazioni.quantita,unita_di_misura.ID,unita_di_misura.descrizione from operazioni,lotdef,prodotti,unita_di_misura where prodotti.ID=operazioni.IDprodotto and lotdef.ID=operazioni.IDlotto and unita_di_misura.ID=operazioni.um and  operazioni.ID in (SELECT operazione from composizione_lot where ID_lotto=:lotid )order by operazioni.quantita desc";
     QSqlQueryModel *qmod = new QSqlQueryModel();
     q.prepare(sql);
     q.bindValue(":lotid",QVariant(idlot));
+    qDebug()<<"gcl"<<sql;
     q.exec();
     qmod->setQuery(q);
     qDebug()<<q.lastQuery()<<q.lastError().text();
@@ -156,9 +158,6 @@ void HModifyProd::getComponetsLot()
     lbtxt.append(ui->tvLots->model()->index(ui->tvLots->currentIndex().row(),2).data(0).toString());
     ui->lbProd->setText(lbtxt);
 
-
-
-qDebug()<<QString::number(idlot);
 
 
 }
@@ -328,6 +327,8 @@ void HModifyProd::on_pushButton_2_clicked()
 void HModifyProd::getIDLot()
 {
     idlot=ui->tvLots->model()->index(ui->tvLots->currentIndex().row(),0).data(0).toInt();
+    qDebug()<<"getIDLot"<<QString::number(idlot);
+
     getComponetsLot();
 }
 
@@ -398,7 +399,7 @@ void HModifyProd::on_radioButton_clicked()
 void HModifyProd::on_radioButton_2_clicked()
 {
   //  tmLots->select();
-    tipo="lotdef.tipo=4";
+    tipo="lotdef.tipo=2";
     tmLots->setFilter(tipo + " and lotdef.data between '" + dfrom.toString("yyyy-MM-dd") + "' and '" + dto.toString("yyyy-MM-dd")+"'");
 
     //qDebug()<<tmLots->query().lastError().text();
