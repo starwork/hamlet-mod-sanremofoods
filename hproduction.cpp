@@ -68,6 +68,11 @@ void HProduction::init(QString conn, QString userid)
     userID=userid;
     modifyLot=false;
 
+    ui->label_8->setVisible(false);
+    ui->cbClienti->setVisible(false);
+    ui->lvSubclienti->setVisible(false);
+    ui->checkBox->setVisible(false);
+
 
      db=QSqlDatabase::database(sConn);
 

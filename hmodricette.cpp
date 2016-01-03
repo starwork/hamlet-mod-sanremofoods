@@ -81,7 +81,7 @@ void HModRicette::init(QString conn,HUser *usr)
 
     tric=new QSqlTableModel(0,db);
     tric->setTable("prodotti");
-    tric->setFilter("tipo=2");
+    tric->setFilter("tipo IN (1,3,4)");
     tric->setSort(1,Qt::AscendingOrder);
     tric->select();
 
@@ -322,7 +322,7 @@ void HModRicette::loadRicetta()
     QStandardItemModel *mod=new QStandardItemModel();
     while (q.next())
     {
-        int alle=q.value(6).toInt();
+       // int alle=q.value(6).toInt();
 
 
 
@@ -337,10 +337,10 @@ void HModRicette::loadRicetta()
         QString sh=q.value(5).toString();
         QStandardItem *show = new QStandardItem(sh);
 
-         if (alle==1)
+       /*  if (alle==1)
          {
              descrizione->setForeground(Qt::red);
-         }
+         }*/
 
     //   descrizione->setForeground(Qt::red);
 
