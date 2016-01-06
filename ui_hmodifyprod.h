@@ -37,6 +37,7 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QLabel *label;
     QRadioButton *radioButton_2;
+    QRadioButton *radioButton_3;
     QRadioButton *radioButton;
     QGridLayout *gridLayout_2;
     QPushButton *pushButton_6;
@@ -75,7 +76,7 @@ public:
     {
         if (HModifyProd->objectName().isEmpty())
             HModifyProd->setObjectName(QStringLiteral("HModifyProd"));
-        HModifyProd->setWindowModality(Qt::ApplicationModal);
+        HModifyProd->setWindowModality(Qt::NonModal);
         HModifyProd->resize(1143, 711);
         QIcon icon;
         icon.addFile(QStringLiteral(":/Resources/Pencil.PNG"), QSize(), QIcon::Normal, QIcon::Off);
@@ -95,6 +96,11 @@ public:
         radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
 
         horizontalLayout_3->addWidget(radioButton_2);
+
+        radioButton_3 = new QRadioButton(HModifyProd);
+        radioButton_3->setObjectName(QStringLiteral("radioButton_3"));
+
+        horizontalLayout_3->addWidget(radioButton_3);
 
         radioButton = new QRadioButton(HModifyProd);
         radioButton->setObjectName(QStringLiteral("radioButton"));
@@ -304,7 +310,8 @@ public:
     {
         HModifyProd->setWindowTitle(QApplication::translate("HModifyProd", "Modifica Lotti", 0));
         label->setText(QApplication::translate("HModifyProd", "Lotti", 0));
-        radioButton_2->setText(QApplication::translate("HModifyProd", "Prodotti finiti", 0));
+        radioButton_2->setText(QApplication::translate("HModifyProd", "Semilavorati", 0));
+        radioButton_3->setText(QApplication::translate("HModifyProd", "Prodotti finiti", 0));
         radioButton->setText(QApplication::translate("HModifyProd", "Packages", 0));
         pushButton_6->setText(QApplication::translate("HModifyProd", "Aggiorna", 0));
         label_9->setText(QApplication::translate("HModifyProd", "Al:", 0));

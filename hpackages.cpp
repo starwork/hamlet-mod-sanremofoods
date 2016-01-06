@@ -53,7 +53,7 @@ void HPackages::init(QString conn,QString user)
     ui->cbClienti->setModelColumn(1);
 
     tmProdotti->setTable("prodotti");
-    tmProdotti->setFilter("tipo=2");
+    tmProdotti->setFilter("tipo=1");
     tmProdotti->setSort(1,Qt::AscendingOrder);
     tmProdotti->select();
     tmUnitaMisura->setTable("unita_di_misura");

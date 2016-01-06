@@ -3,7 +3,7 @@
  <class>HAssociazioni</class>
  <widget class="QWidget" name="HAssociazioni">
   <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
+   <enum>Qt::NonModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -17,7 +17,7 @@
    <string>Associazioni prodotti-ricette</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="icons.qrc">
+   <iconset resource="resources.qrc">
     <normaloff>:/Resources/Map.PNG</normaloff>:/Resources/Map.PNG</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -76,7 +76,7 @@
           <string>Aggiungi associazione</string>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset resource="resources.qrc">
            <normaloff>:/Resources/Plus.PNG</normaloff>:/Resources/Plus.PNG</iconset>
          </property>
          <property name="iconSize">
@@ -93,7 +93,7 @@
           <string>rimuovi associazione</string>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset resource="resources.qrc">
            <normaloff>:/Resources/Minus.PNG</normaloff>:/Resources/Minus.PNG</iconset>
          </property>
          <property name="iconSize">
@@ -110,7 +110,7 @@
           <string>Rendi visibile</string>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset resource="resources.qrc">
            <normaloff>:/Resources/Bullhorn.PNG</normaloff>:/Resources/Bullhorn.PNG</iconset>
          </property>
          <property name="iconSize">
@@ -127,7 +127,7 @@
           <string>Rendi non visibile</string>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset resource="resources.qrc">
            <normaloff>:/Resources/Banned-Sign.PNG</normaloff>:/Resources/Banned-Sign.PNG</iconset>
          </property>
          <property name="iconSize">
@@ -144,7 +144,7 @@
           <string>Scheda</string>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset resource="resources.qrc">
            <normaloff>:/Resources/Folder.PNG</normaloff>:/Resources/Folder.PNG</iconset>
          </property>
          <property name="iconSize">
@@ -161,7 +161,7 @@
           <string>Chiudi</string>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset resource="resources.qrc">
            <normaloff>:/Resources/Actions-window-close-icon.png</normaloff>:/Resources/Actions-window-close-icon.png</iconset>
          </property>
          <property name="iconSize">
@@ -179,7 +179,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="icons.qrc"/>
+  <include location="resources.qrc"/>
  </resources>
  <connections/>
 </ui>

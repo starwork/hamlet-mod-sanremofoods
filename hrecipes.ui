@@ -3,7 +3,7 @@
  <class>HRecipes</class>
  <widget class="QWidget" name="HRecipes">
   <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
+   <enum>Qt::NonModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -139,7 +139,7 @@
           <string>Stampa</string>
          </property>
          <property name="icon">
-          <iconset>
+          <iconset resource="resources.qrc">
            <normaloff>:/Resources/Printer-icon.png</normaloff>:/Resources/Printer-icon.png</iconset>
          </property>
         </widget>

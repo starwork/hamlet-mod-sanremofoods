@@ -68,6 +68,7 @@ private slots:
     void on_pushButton_7_clicked();
 
 
+    void on_radioButton_3_toggled(bool checked);
 };
 
 #endif // HMODIFYPROD_H

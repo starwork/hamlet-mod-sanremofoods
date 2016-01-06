@@ -3,7 +3,7 @@
  <class>HModRicette</class>
  <widget class="QWidget" name="HModRicette">
   <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
+   <enum>Qt::NonModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -20,7 +20,7 @@
    <string>Ricette</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="icons.qrc">
+   <iconset resource="resources.qrc">
     <normaloff>:/Resources/Sheet-Of-Paper.PNG</normaloff>:/Resources/Sheet-Of-Paper.PNG</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -52,7 +52,7 @@
         <string>Nuova Ricetta</string>
        </property>
        <property name="icon">
-        <iconset resource="icons.qrc">
+        <iconset resource="resources.qrc">
          <normaloff>:/Resources/Plus.PNG</normaloff>:/Resources/Plus.PNG</iconset>
        </property>
       </widget>
@@ -63,7 +63,7 @@
         <string>Duplica Ricetta</string>
        </property>
        <property name="icon">
-        <iconset resource="icons.qrc">
+        <iconset resource="resources.qrc">
          <normaloff>:/Resources/Notepad.PNG</normaloff>:/Resources/Notepad.PNG</iconset>
        </property>
       </widget>
@@ -74,7 +74,7 @@
         <string>Associazioni ricette-clienti</string>
        </property>
        <property name="icon">
-        <iconset resource="icons.qrc">
+        <iconset resource="resources.qrc">
          <normaloff>:/Resources/Map.PNG</normaloff>:/Resources/Map.PNG</iconset>
        </property>
       </widget>
@@ -127,7 +127,7 @@
           <string>Aggiungi ingrediente</string>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset resource="resources.qrc">
            <normaloff>:/Resources/Plus.PNG</normaloff>:/Resources/Plus.PNG</iconset>
          </property>
         </widget>
@@ -138,7 +138,7 @@
           <string>Rimuovi ingrediente</string>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset resource="resources.qrc">
            <normaloff>:/Resources/Minus.PNG</normaloff>:/Resources/Minus.PNG</iconset>
          </property>
         </widget>
@@ -181,7 +181,7 @@
         <string>Salva</string>
        </property>
        <property name="icon">
-        <iconset resource="icons.qrc">
+        <iconset resource="resources.qrc">
          <normaloff>:/Resources/save-icon.png</normaloff>:/Resources/save-icon.png</iconset>
        </property>
        <property name="iconSize">
@@ -198,7 +198,7 @@
         <string>Stampa</string>
        </property>
        <property name="icon">
-        <iconset resource="icons.qrc">
+        <iconset resource="resources.qrc">
          <normaloff>:/Resources/Printer-icon.png</normaloff>:/Resources/Printer-icon.png</iconset>
        </property>
        <property name="iconSize">
@@ -215,7 +215,7 @@
         <string>Chiudi</string>
        </property>
        <property name="icon">
-        <iconset resource="icons.qrc">
+        <iconset resource="resources.qrc">
          <normaloff>:/Resources/Actions-window-close-icon.png</normaloff>:/Resources/Actions-window-close-icon.png</iconset>
        </property>
        <property name="iconSize">
@@ -231,7 +231,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="icons.qrc"/>
+  <include location="resources.qrc"/>
  </resources>
  <connections/>
 </ui>

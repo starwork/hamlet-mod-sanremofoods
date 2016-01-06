@@ -3,7 +3,7 @@
  <class>HGestioneUtenti</class>
  <widget class="QWidget" name="HGestioneUtenti">
   <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
+   <enum>Qt::NonModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -17,7 +17,7 @@
    <string>Gestione Utenti</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="icons.qrc">
+   <iconset resource="resources.qrc">
     <normaloff>:/Resources/Warning-Sign.PNG</normaloff>:/Resources/Warning-Sign.PNG</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -171,7 +171,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="icons.qrc"/>
+  <include location="resources.qrc"/>
  </resources>
  <connections/>
 </ui>

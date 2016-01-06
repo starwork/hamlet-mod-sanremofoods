@@ -36,7 +36,7 @@ void HModifyProd::init(QString conn,HUser *usr)
     action=0;
 
     ui->deDal->setDate(QDate::currentDate().addYears(-2));
-    ui->deAl->setDate(QDate::currentDate());
+    ui->deAl->setDate(QDate::currentDate().addDays(1));
     dfrom=ui->deDal->date();
     dto=ui->deAl->date();
     tipo="lotdef.tipo in (1,2,4,7)";
@@ -518,3 +518,12 @@ void HModifyProd::on_pushButton_7_clicked()
     ui->leSearch->setText("");
 }
 
+
+void HModifyProd::on_radioButton_3_toggled(bool checked)
+{
+    if (checked)
+    {
+        tipo="lotdef.tipo=4";
+        tmLots->setFilter(tipo + " and lotdef.data between '" + dfrom.toString("yyyy-MM-dd") + "' and '" + dto.toString("yyyy-MM-dd")+"'");
+    }
+}

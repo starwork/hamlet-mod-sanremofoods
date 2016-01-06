@@ -3,7 +3,7 @@
  <class>HPackages</class>
  <widget class="QWidget" name="HPackages">
   <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
+   <enum>Qt::NonModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -17,7 +17,7 @@
    <string>Packages</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="icons.qrc">
+   <iconset resource="resources.qrc">
     <normaloff>:/Resources/Box.PNG</normaloff>:/Resources/Box.PNG</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -55,7 +55,7 @@
               <string>Filtra i prodotti per subcliente</string>
              </property>
              <property name="icon">
-              <iconset resource="icons.qrc">
+              <iconset resource="resources.qrc">
                <normaloff>:/Resources/Search.PNG</normaloff>:/Resources/Search.PNG</iconset>
              </property>
              <property name="checked">
@@ -69,7 +69,7 @@
               <string>mostra i subclienti se presenti</string>
              </property>
              <property name="icon">
-              <iconset resource="icons.qrc">
+              <iconset resource="resources.qrc">
                <normaloff>:/Resources/Book.PNG</normaloff>:/Resources/Book.PNG</iconset>
              </property>
             </widget>
@@ -175,7 +175,7 @@
             <string>Inizia</string>
            </property>
            <property name="icon">
-            <iconset resource="icons.qrc">
+            <iconset resource="resources.qrc">
              <normaloff>:/Resources/Box.PNG</normaloff>:/Resources/Box.PNG</iconset>
            </property>
           </widget>
@@ -189,7 +189,7 @@
             <string>Annulla</string>
            </property>
            <property name="icon">
-            <iconset resource="icons.qrc">
+            <iconset resource="resources.qrc">
              <normaloff>:/Resources/Banned-Sign.PNG</normaloff>:/Resources/Banned-Sign.PNG</iconset>
            </property>
           </widget>
@@ -255,7 +255,7 @@
               <string>Aggiungi</string>
              </property>
              <property name="icon">
-              <iconset resource="icons.qrc">
+              <iconset resource="resources.qrc">
                <normaloff>:/Resources/Plus.PNG</normaloff>:/Resources/Plus.PNG</iconset>
              </property>
             </widget>
@@ -269,7 +269,7 @@
               <string>Rimuovi</string>
              </property>
              <property name="icon">
-              <iconset resource="icons.qrc">
+              <iconset resource="resources.qrc">
                <normaloff>:/Resources/Minus.PNG</normaloff>:/Resources/Minus.PNG</iconset>
              </property>
             </widget>
@@ -358,7 +358,7 @@
         <string>Salva</string>
        </property>
        <property name="icon">
-        <iconset resource="icons.qrc">
+        <iconset resource="resources.qrc">
          <normaloff>:/Resources/save-icon.png</normaloff>:/Resources/save-icon.png</iconset>
        </property>
        <property name="iconSize">
@@ -375,7 +375,7 @@
         <string>Chiudi</string>
        </property>
        <property name="icon">
-        <iconset resource="icons.qrc">
+        <iconset resource="resources.qrc">
          <normaloff>:/Resources/Actions-window-close-icon.png</normaloff>:/Resources/Actions-window-close-icon.png</iconset>
        </property>
        <property name="iconSize">
@@ -392,7 +392,7 @@
   <zorder></zorder>
  </widget>
  <resources>
-  <include location="icons.qrc"/>
+  <include location="resources.qrc"/>
  </resources>
  <connections/>
 </ui>

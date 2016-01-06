@@ -53,7 +53,7 @@ public:
     {
         if (HRecipes->objectName().isEmpty())
             HRecipes->setObjectName(QStringLiteral("HRecipes"));
-        HRecipes->setWindowModality(Qt::ApplicationModal);
+        HRecipes->setWindowModality(Qt::NonModal);
         HRecipes->resize(1179, 666);
         QIcon icon;
         icon.addFile(QStringLiteral(":/Resources/Notepad.PNG"), QSize(), QIcon::Normal, QIcon::Off);

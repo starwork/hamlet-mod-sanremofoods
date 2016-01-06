@@ -27,7 +27,7 @@ void HRecipeAddRow::init(QString conn,int idricetta)
 
     QSqlTableModel *mod= new QSqlTableModel(0,db);
     mod->setTable("prodotti");
-    mod->setFilter("tipo=1");
+    mod->setFilter("tipo=0");
     mod->setSort(1,Qt::AscendingOrder);
     mod->select();
 

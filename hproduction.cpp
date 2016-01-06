@@ -79,7 +79,7 @@ void HProduction::init(QString conn, QString userid)
      tmTipiLotti=new QSqlTableModel(0,db);
      tmTipiLotti->setTable("tipi_lot");
      tmTipiLotti->select();
-    // tmTipiLotti->setFilter("ID=3");
+     tmTipiLotti->setFilter("ID in (2,4)");
      tmTipiLotti->setSort(1,Qt::AscendingOrder);
 
      ui->cbTipoLotto->setModel(tmTipiLotti);
@@ -98,7 +98,6 @@ void HProduction::init(QString conn, QString userid)
      getClients();
      ui->cbClienti->setCurrentIndex(ui->cbClienti->model()->rowCount());
      ui->cbClienti->setCurrentIndex(0);
-
 
 
      ui->tableView->setEnabled(false);
@@ -387,11 +386,26 @@ void HProduction::getRecipesForClient()
  //   QString qs="SELECT select prodotti.ID,ricette.ID,prodotti.descrizione from ricette,associazioni,prodotti,anagrafica where prodotti.ID=ricette.ID_prodotto and ricette.ID=associazioni.ID_ricetta and associazioni.ID_cliente=anagrafica.ID and associazioni.ID_cliente="+idcliente;
 //  QString qs="select ricette.ID,prodotti.ID,prodotti.descrizione from prodotti, ricette, associazioni where ricette.ID=associazioni.ID_ricetta and prodotti.ID=ricette.ID_prodotto and associazioni.visualizza=1 and associazioni.visualizza=1 and associazioni.ID_cliente=:idcliente";
 
-    QString qs="select ricette.ID,prodotti.ID,prodotti.descrizione from prodotti, ricette  where  prodotti.ID=ricette.ID_prodotto";
+    QString qs="select ricette.ID,prodotti.ID,prodotti.descrizione from prodotti, ricette,tipi_prodotto  where  prodotti.ID=ricette.ID_prodotto and tipi_prodotto.ID=prodotti.tipo and tipi_prodotto.ID=:tipo";
 
     QSqlQuery q(db);
     q.prepare(qs);
   //  q.bindValue(":idcliente",QVariant(idcliente));
+    int tipo;
+    if (ui->radioButton->isChecked())
+    {
+        tipo=3;
+    }
+    else if (ui->radioButton_2->isChecked())
+    {
+        tipo=4;
+    }
+    else if (ui->radioButton_3->isChecked())
+    {
+        tipo=1;
+    }
+
+    q.bindValue(":tipo",QVariant(tipo));
 
     qmRicette=new QSqlQueryModel();
 
@@ -419,7 +433,12 @@ void HProduction::getRecipe()
   //  connect(ui->tableView->selectionModel(),SIGNAL(currentChanged(QModelIndex,QModelIndex)),this,SLOT(findProduct()));
     // tmOperazioni->setHeaderData(8,Qt::Horizontal,QObject::tr("Note"));
 
-    ui->tableView->horizontalHeader()->resizeSections(QHeaderView::Stretch);
+   // ui->tableView->verticalHeader()->resizeSections(QHeaderView::Interactive);
+   //  ui->tableView->horizontalHeader()->setSectionsMovable(true);
+    //  ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
+   // ui->tableView->horizontalHeader()->resizeSections(QHeaderView::Stretch);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
+
 
     //note
 
@@ -512,9 +531,11 @@ void HProduction::getRecipe()
 
    // qmrighe->setQuery(q);
     ui->tableView->setModel(model);
-    //ui->tableView->horizontalHeader()->setStretchLastSection(true);
-   // ui->tableView->resizeColumnsToContents();
-     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableView->horizontalHeader()->setStretchLastSection(true);
+    ui->tableView->resizeColumnsToContents();
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
+
+
 
     connect(ui->lvRicette->selectionModel(),SIGNAL(currentChanged(QModelIndex,QModelIndex)),this,SLOT(recalculateTotal()));
     connect(ui->tableView->selectionModel(),SIGNAL(currentChanged(QModelIndex,QModelIndex)),this,SLOT(productSelected()));
@@ -856,7 +877,7 @@ bool HProduction::saveNewLot(QString lot, int prodotto)
     bool b;
     QSqlQuery q(db);
 
-    //qDebug()<<lot<<prodotto<<data<<"saveNewLot()";
+    qDebug()<<lot<<"saveNewLot()";
 
     QString sql="INSERT INTO `lotdef`(`lot`,`prodotto`,`data`,`giacenza`,`um`,`scadenza`,`anagrafica`,`lot_fornitore`, `EAN`, `tipo`, `attivo`,`note`) VALUES(:lot,:prodotto,:data,:giacenza,:um,:scadenza ,:anagrafica,:lotf,:ean,:tipo,:attivo,:note)";
     QString giacenza=ui->leQtyTotal->text();
@@ -889,7 +910,7 @@ qDebug()<<scadenza.toString("yyyy-MM-dd");
 qDebug()<<q.boundValue(5).toString()<<q.boundValue(4).toString()<<q.boundValue(6).toString();
     if(!b)
     {
-        //qDebug()<<q.lastError().text()<<q.lastQuery();
+        qDebug()<<"savenewlot"<<q.lastError().text()<<q.lastQuery();
         QMessageBox::warning(this,"savenewlot",q.lastError().text()+"\n"+prodotto,QMessageBox::Ok);
 
     }
@@ -1038,9 +1059,9 @@ bool HProduction::saveProduction()
 
     db.transaction();
 //creo un nuovo lotto
-
+    qDebug()<<"calling saveNewLot";
  fb=saveNewLot(lotto,idprodotto);
- qDebug()<<"saveNewLot"<<fb;
+ qDebug()<<"saveNewLot"<<fb<<idprodotto;
 
   newlotid=lastInsertId();
   qDebug()<<QString::number(newlotid);
@@ -1383,4 +1404,23 @@ void HProduction::on_checkBox_toggled(bool checked)
 void HProduction::on_pbAnnulla_clicked()
 {
 
+}
+
+void HProduction::on_radioButton_toggled(bool checked)
+{
+    if (checked)
+    {getRecipesForClient();}
+}
+
+void HProduction::on_radioButton_2_toggled(bool checked)
+{
+    if (checked)
+    {getRecipesForClient();}
+
+}
+
+void HProduction::on_radioButton_3_toggled(bool checked)
+{
+    if (checked)
+    {getRecipesForClient();}
 }

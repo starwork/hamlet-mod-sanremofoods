@@ -3,7 +3,7 @@
  <class>HModifyProd</class>
  <widget class="QWidget" name="HModifyProd">
   <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
+   <enum>Qt::NonModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -17,7 +17,7 @@
    <string>Modifica Lotti</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="icons.qrc">
+   <iconset resource="resources.qrc">
     <normaloff>:/Resources/Pencil.PNG</normaloff>:/Resources/Pencil.PNG</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -34,6 +34,13 @@
        </item>
        <item>
         <widget class="QRadioButton" name="radioButton_2">
+         <property name="text">
+          <string>Semilavorati</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButton_3">
          <property name="text">
           <string>Prodotti finiti</string>
          </property>
@@ -167,7 +174,7 @@
             <string>Rimuovi componente selezionato</string>
            </property>
            <property name="icon">
-            <iconset resource="icons.qrc">
+            <iconset resource="resources.qrc">
              <normaloff>:/Resources/Minus.PNG</normaloff>:/Resources/Minus.PNG</iconset>
            </property>
           </widget>
@@ -221,7 +228,7 @@
               <string>Aggiungi</string>
              </property>
              <property name="icon">
-              <iconset resource="icons.qrc">
+              <iconset resource="resources.qrc">
                <normaloff>:/Resources/Plus.PNG</normaloff>:/Resources/Plus.PNG</iconset>
              </property>
             </widget>
@@ -232,7 +239,7 @@
               <string>Annulla aggiunta</string>
              </property>
              <property name="icon">
-              <iconset resource="icons.qrc">
+              <iconset resource="resources.qrc">
                <normaloff>:/Resources/Banned-Sign.PNG</normaloff>:/Resources/Banned-Sign.PNG</iconset>
              </property>
             </widget>
@@ -253,7 +260,7 @@
         <string>Salva</string>
        </property>
        <property name="icon">
-        <iconset resource="icons.qrc">
+        <iconset resource="resources.qrc">
          <normaloff>:/Resources/save-icon.png</normaloff>:/Resources/save-icon.png</iconset>
        </property>
        <property name="iconSize">
@@ -270,7 +277,7 @@
         <string>Chiudi</string>
        </property>
        <property name="icon">
-        <iconset resource="icons.qrc">
+        <iconset resource="resources.qrc">
          <normaloff>:/Resources/Actions-window-close-icon.png</normaloff>:/Resources/Actions-window-close-icon.png</iconset>
        </property>
        <property name="iconSize">
@@ -286,7 +293,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="icons.qrc"/>
+  <include location="resources.qrc"/>
  </resources>
  <connections/>
 </ui>

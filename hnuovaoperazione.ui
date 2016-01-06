@@ -3,7 +3,7 @@
  <class>HnuovaOperazione</class>
  <widget class="QWidget" name="HnuovaOperazione">
   <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
+   <enum>Qt::NonModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -23,7 +23,7 @@
    <string>Nuova operazione</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="icons.qrc">
+   <iconset resource="resources.qrc">
     <normaloff>:/Resources/Actions-configure-icon.png</normaloff>:/Resources/Actions-configure-icon.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -240,7 +240,7 @@
         <string>Salva operazione</string>
        </property>
        <property name="icon">
-        <iconset resource="icons.qrc">
+        <iconset resource="resources.qrc">
          <normaloff>:/Resources/save-icon.png</normaloff>:/Resources/save-icon.png</iconset>
        </property>
        <property name="iconSize">
@@ -257,7 +257,7 @@
         <string>Chiudi</string>
        </property>
        <property name="icon">
-        <iconset resource="icons.qrc">
+        <iconset resource="resources.qrc">
          <normaloff>:/Resources/Actions-window-close-icon.png</normaloff>:/Resources/Actions-window-close-icon.png</iconset>
        </property>
        <property name="iconSize">
@@ -273,7 +273,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="icons.qrc"/>
+  <include location="resources.qrc"/>
  </resources>
  <connections/>
 </ui>

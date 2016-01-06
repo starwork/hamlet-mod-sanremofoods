@@ -88,6 +88,9 @@ private slots:
     void on_pushButton_10_clicked();
     void on_checkBox_toggled(bool checked);
     void on_pbAnnulla_clicked();
+    void on_radioButton_toggled(bool checked);
+    void on_radioButton_2_toggled(bool checked);
+    void on_radioButton_3_toggled(bool checked);
 };
 
 #endif // HPRODUCTION_H

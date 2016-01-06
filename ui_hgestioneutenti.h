@@ -58,7 +58,7 @@ public:
     {
         if (HGestioneUtenti->objectName().isEmpty())
             HGestioneUtenti->setObjectName(QStringLiteral("HGestioneUtenti"));
-        HGestioneUtenti->setWindowModality(Qt::ApplicationModal);
+        HGestioneUtenti->setWindowModality(Qt::NonModal);
         HGestioneUtenti->resize(769, 461);
         QIcon icon;
         icon.addFile(QStringLiteral(":/Resources/Warning-Sign.PNG"), QSize(), QIcon::Normal, QIcon::Off);

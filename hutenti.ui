@@ -3,7 +3,7 @@
  <class>HUtenti</class>
  <widget class="QWidget" name="HUtenti">
   <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
+   <enum>Qt::NonModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -17,7 +17,7 @@
    <string>Anagrafica</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="icons.qrc">
+   <iconset resource="resources.qrc">
     <normaloff>:/Resources/User-Black.PNG</normaloff>:/Resources/User-Black.PNG</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -205,7 +205,7 @@
           <string>Nuovo</string>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset resource="resources.qrc">
            <normaloff>:/Resources/Plus.PNG</normaloff>:/Resources/Plus.PNG</iconset>
          </property>
          <property name="iconSize">
@@ -222,7 +222,7 @@
           <string>Annulla</string>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset resource="resources.qrc">
            <normaloff>:/Resources/Banned-Sign.PNG</normaloff>:/Resources/Banned-Sign.PNG</iconset>
          </property>
          <property name="iconSize">
@@ -239,7 +239,7 @@
           <string>Salva</string>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset resource="resources.qrc">
            <normaloff>:/Resources/save-icon.png</normaloff>:/Resources/save-icon.png</iconset>
          </property>
          <property name="iconSize">
@@ -256,7 +256,7 @@
           <string>Chiudi</string>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset resource="resources.qrc">
            <normaloff>:/Resources/Actions-window-close-icon.png</normaloff>:/Resources/Actions-window-close-icon.png</iconset>
          </property>
          <property name="iconSize">
@@ -274,7 +274,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="icons.qrc"/>
+  <include location="resources.qrc"/>
  </resources>
  <connections>
   <connection>

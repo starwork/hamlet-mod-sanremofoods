@@ -69,7 +69,7 @@ public:
     {
         if (HProdotti->objectName().isEmpty())
             HProdotti->setObjectName(QStringLiteral("HProdotti"));
-        HProdotti->setWindowModality(Qt::ApplicationModal);
+        HProdotti->setWindowModality(Qt::NonModal);
         HProdotti->resize(1187, 633);
         QIcon icon;
         icon.addFile(QStringLiteral(":/Resources/Wood-4-icon.png"), QSize(), QIcon::Normal, QIcon::Off);

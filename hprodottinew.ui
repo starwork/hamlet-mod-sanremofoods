@@ -3,7 +3,7 @@
  <class>HProdottiNew</class>
  <widget class="QWidget" name="HProdottiNew">
   <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
+   <enum>Qt::NonModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -17,7 +17,7 @@
    <string>Prodotti</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="icons.qrc">
+   <iconset resource="resources.qrc">
     <normaloff>:/Resources/Box.PNG</normaloff>:/Resources/Box.PNG</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -132,7 +132,7 @@
         <string>Nuovo</string>
        </property>
        <property name="icon">
-        <iconset resource="icons.qrc">
+        <iconset resource="resources.qrc">
          <normaloff>:/Resources/Plus.PNG</normaloff>:/Resources/Plus.PNG</iconset>
        </property>
        <property name="iconSize">
@@ -149,7 +149,7 @@
         <string>Chiudi</string>
        </property>
        <property name="icon">
-        <iconset resource="icons.qrc">
+        <iconset resource="resources.qrc">
          <normaloff>:/Resources/Actions-window-close-icon.png</normaloff>:/Resources/Actions-window-close-icon.png</iconset>
        </property>
        <property name="iconSize">
@@ -165,7 +165,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="icons.qrc"/>
+  <include location="resources.qrc"/>
  </resources>
  <connections/>
 </ui>
