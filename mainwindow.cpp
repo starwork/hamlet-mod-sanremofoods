@@ -40,6 +40,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
   QSettings settings("DB");
 
     ui->setupUi(this);
+  //  ui->tbAnalisi->setVisible(false);
   //  enableDB();
 //enableButtonsForRole(true);
    // this->showMaximized();
@@ -66,6 +67,7 @@ void MainWindow::init()
 {
     user=new HUser();
     user->init(sConn);
+  //  ui->tbAnalisi->setVisible(false);
 }
 
 
@@ -81,6 +83,7 @@ void MainWindow::userLogged(int id, int gruppo, bool update,bool updateanag)
     user->setCanUpdateAnag(updateanag);
 
     enableButtonsForRole();
+  //  ui->tbAnalisi->setVisible(false);
 
 
 }

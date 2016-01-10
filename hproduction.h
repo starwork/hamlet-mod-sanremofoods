@@ -9,6 +9,7 @@
 #include <QSqlTableModel>
 #include <QSqlRecord>
 #include <QList>
+#include <QCompleter>
 
 namespace Ui {
 class HProduction;
@@ -34,6 +35,7 @@ private:
     QSqlQueryModel *model;
     QSqlTableModel *tmTipiLotti;
     QSqlTableModel *tmUm;
+    QCompleter *complots;
 
     bool modifyLot;
     int lottomodifica;

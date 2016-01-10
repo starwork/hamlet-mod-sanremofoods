@@ -46,10 +46,10 @@ public:
     QListView *lvSubclienti;
     QGridLayout *gridLayout;
     QLabel *label_6;
+    QRadioButton *radioButton_3;
+    QRadioButton *radioButton;
     QRadioButton *radioButton_2;
     QComboBox *cbTipoLotto;
-    QRadioButton *radioButton;
-    QRadioButton *radioButton_3;
     QListView *lvRicette;
     QHBoxLayout *horizontalLayout_8;
     QLabel *label;
@@ -152,27 +152,27 @@ public:
 
         gridLayout->addWidget(label_6, 1, 0, 1, 1);
 
+        radioButton_3 = new QRadioButton(HProduction);
+        radioButton_3->setObjectName(QStringLiteral("radioButton_3"));
+
+        gridLayout->addWidget(radioButton_3, 4, 2, 1, 1);
+
+        radioButton = new QRadioButton(HProduction);
+        radioButton->setObjectName(QStringLiteral("radioButton"));
+        radioButton->setChecked(true);
+
+        gridLayout->addWidget(radioButton, 4, 0, 1, 1);
+
         radioButton_2 = new QRadioButton(HProduction);
         radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
 
-        gridLayout->addWidget(radioButton_2, 0, 1, 1, 1);
+        gridLayout->addWidget(radioButton_2, 4, 1, 1, 1);
 
         cbTipoLotto = new QComboBox(HProduction);
         cbTipoLotto->setObjectName(QStringLiteral("cbTipoLotto"));
         cbTipoLotto->setFont(font);
 
         gridLayout->addWidget(cbTipoLotto, 1, 1, 1, 1);
-
-        radioButton = new QRadioButton(HProduction);
-        radioButton->setObjectName(QStringLiteral("radioButton"));
-        radioButton->setChecked(true);
-
-        gridLayout->addWidget(radioButton, 0, 0, 1, 1);
-
-        radioButton_3 = new QRadioButton(HProduction);
-        radioButton_3->setObjectName(QStringLiteral("radioButton_3"));
-
-        gridLayout->addWidget(radioButton_3, 0, 2, 1, 1);
 
 
         verticalLayout->addLayout(gridLayout);
@@ -473,9 +473,9 @@ public:
         label_8->setText(QApplication::translate("HProduction", "Clienti", 0));
         checkBox->setText(QApplication::translate("HProduction", "mostra subclienti", 0));
         label_6->setText(QApplication::translate("HProduction", "tipo di lotto:", 0));
-        radioButton_2->setText(QApplication::translate("HProduction", "Ripieni", 0));
-        radioButton->setText(QApplication::translate("HProduction", "Impasti", 0));
         radioButton_3->setText(QApplication::translate("HProduction", "Prodotti", 0));
+        radioButton->setText(QApplication::translate("HProduction", "Impasti", 0));
+        radioButton_2->setText(QApplication::translate("HProduction", "Ripieni", 0));
         label->setText(QApplication::translate("HProduction", "mostra", 0));
         pushButton->setText(QApplication::translate("HProduction", "Aggiungi", 0));
         pushButton_7->setText(QApplication::translate("HProduction", "Aggiungi lotto fuori ricetta", 0));

@@ -141,6 +141,10 @@ void HProduction::init(QString conn, QString userid)
      connect(ui->cbClienti,SIGNAL(currentIndexChanged(int)),this,SLOT(getSubclients()));
 
      ui->lvRicette->setCurrentIndex(ui->lvRicette->model()->index(0,1));
+     getLotModel();
+
+
+
 
 
 }
@@ -154,7 +158,7 @@ void HProduction::getLotModel()
     comp->setCompletionColumn(1);
     lm->setSort(3,Qt::DescendingOrder);
     lm->select();
-    ui->leLotToEdit->setCompleter(comp);
+    ui->leLotToadd->setCompleter(comp);
 
 }
 
@@ -534,6 +538,8 @@ void HProduction::getRecipe()
     ui->tableView->horizontalHeader()->setStretchLastSection(true);
     ui->tableView->resizeColumnsToContents();
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
+    ui->tableView->setColumnHidden(0,true);
+    ui->tableView->setColumnHidden(3,true);
 
 
 
@@ -789,7 +795,7 @@ void HProduction::addLotFuoriRicetta()
     QStandardItem *lotto =new QStandardItem(lotToadd);
     QStandardItem *qua=new QStandardItem(ui->tableView->model()->index(ui->tableView->currentIndex().row(),5).data(0).toString());
 
-
+//qDebug()<<QString::number(mod->rowCount());
     row.append(idprodotto);
     row.append(prodotto);
     row.append(quantita);
@@ -804,6 +810,8 @@ void HProduction::addLotFuoriRicetta()
 
     ui->leLotToadd->setText("");
     ui->leqtytoAdd->setText("");
+
+
 
 }
 
@@ -843,9 +851,6 @@ void HProduction::on_pushButton_5_clicked()
     ui->leQtyTotal->setEnabled(true);
     ui->cbTipoLotto->setEnabled(false);
     ui->checkBox->setEnabled(false);
-
-
-
 
 }
 

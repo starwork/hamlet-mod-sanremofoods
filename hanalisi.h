@@ -31,6 +31,8 @@ private:
 
 private slots:
 
+    void getProducts();
+
     void getProductsForClient();
     void getLotComponents();
     void getLotComponents(int idlotto);
