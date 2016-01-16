@@ -68,6 +68,7 @@ void HProduction::init(QString conn, QString userid)
     userID=userid;
     modifyLot=false;
 
+
     ui->label_8->setVisible(false);
     ui->cbClienti->setVisible(false);
     ui->lvSubclienti->setVisible(false);
@@ -136,12 +137,26 @@ void HProduction::init(QString conn, QString userid)
 
      setAddProductFuoriRicettaUI(false);
 
+     QStandardItemModel *mod=new QStandardItemModel(0,6);
+     ui->tableView->setModel(mod);
+
 
      connect(ui->cbQuanti,SIGNAL(currentIndexChanged(int)),this,SLOT(lastFiveLots()));
      connect(ui->cbClienti,SIGNAL(currentIndexChanged(int)),this,SLOT(getSubclients()));
 
      ui->lvRicette->setCurrentIndex(ui->lvRicette->model()->index(0,1));
-     getLotModel();
+
+     QSqlTableModel *lm=new QSqlTableModel(0,db);
+     lm->setTable("lotdef");
+
+
+     lm->setSort(3,Qt::DescendingOrder);
+     lm->select();
+     QCompleter *comp=new QCompleter(lm);
+     comp->setCompletionMode(QCompleter::PopupCompletion);
+     comp->setCompletionColumn(1);
+     ui->leLotToadd->setCompleter(comp);
+
 
 
 
@@ -149,18 +164,20 @@ void HProduction::init(QString conn, QString userid)
 
 }
 
-void HProduction::getLotModel()
+/*void HProduction::getLotModel()
 {
     QSqlTableModel *lm=new QSqlTableModel(0,db);
     lm->setTable("lotdef");
+
+
+    lm->setSort(3,Qt::DescendingOrder);
+    lm->select();
     QCompleter *comp=new QCompleter(lm);
     comp->setCompletionMode(QCompleter::PopupCompletion);
     comp->setCompletionColumn(1);
-    lm->setSort(3,Qt::DescendingOrder);
-    lm->select();
     ui->leLotToadd->setCompleter(comp);
 
-}
+}*/
 
 void HProduction::recalculateTotal()
 {
@@ -709,7 +726,12 @@ void HProduction::addLotProd()
   //  QString qp="SELECT descrizione from prodotti where ID="+prod;
    // QList<QString> list;
 
-    QStandardItemModel *qm=static_cast<QStandardItemModel*>(ui->tableView->model());
+    QStandardItemModel *qm;
+
+    qm=static_cast<QStandardItemModel*>(ui->tableView->model());
+
+   /* if (!qm)
+    {qm=new Q}*/
 
     lotToadd=ui->leLotToadd->text();
 
@@ -793,6 +815,7 @@ void HProduction::addLotFuoriRicetta()
     QStandardItem *quantita=new QStandardItem("0.0");
     QStandardItem *idlotto=new QStandardItem(QString::number(id_lotto));
     QStandardItem *lotto =new QStandardItem(lotToadd);
+
     QStandardItem *qua=new QStandardItem(ui->tableView->model()->index(ui->tableView->currentIndex().row(),5).data(0).toString());
 
 //qDebug()<<QString::number(mod->rowCount());
@@ -803,10 +826,25 @@ void HProduction::addLotFuoriRicetta()
     row.append(lotto);
     row.append(qua);
 
-    QStandardItemModel *mod=static_cast<QStandardItemModel*>(ui->tableView->model());
-    mod->insertRow(ui->tableView->currentIndex().row(),row);
+    int rowb;
+
+    QStandardItemModel *mod;
+    if(ui->tableView->model()->rowCount()>0)
+    {
+        mod=static_cast<QStandardItemModel*>(ui->tableView->model());
+        rowb=ui->tableView->currentIndex().row();
+    }
+    else
+    {
+        mod = new QStandardItemModel(0,6);
+        rowb=0;
+       // ui->tableView->setCurrentIndex(ui->tableView->model()->index(0,0));
+
+    }
+    mod->insertRow(rowb,row);
    // connect(ui->lvLastLots->selectionModel(),SIGNAL(currentChanged(QModelIndex,QModelIndex)),this,SLOT(addLotProd()));
-    ui->tableView->setCurrentIndex(ui->tableView->model()->index(ui->tableView->currentIndex().row()+1,0));
+    ui->tableView->setModel(mod);
+    ui->tableView->setCurrentIndex(ui->tableView->model()->index(ui->tableView->model()->rowCount(),0));
 
     ui->leLotToadd->setText("");
     ui->leqtytoAdd->setText("");
@@ -1135,6 +1173,7 @@ bool HProduction::saveProduction()
        db.commit();
        QMessageBox::information(this,QApplication::applicationName(),"Produzione salvata",QMessageBox::Ok);
        ui->tableView->setModel(0);
+       return fb;
 
 
 
@@ -1429,3 +1468,5 @@ void HProduction::on_radioButton_3_toggled(bool checked)
     if (checked)
     {getRecipesForClient();}
 }
+
+

@@ -7,6 +7,7 @@
 #include <QSqlTableModel>
 #include <QDebug>
 #include <QSqlError>
+#include <QCompleter>
 
 
 HModifyLot::HModifyLot(QWidget *parent) :
@@ -44,12 +45,28 @@ void HModifyLot::init(int idlotto, QString conn)
 
     ui->cbAnag->setModelColumn(1);
     ui->cbAnag->setModel(mang);
+    QCompleter *anacomp=new QCompleter(mang);
+    anacomp->setCompletionColumn(1);
+    anacomp->setCaseSensitivity(Qt::CaseInsensitive);
+    anacomp->setCompletionMode(QCompleter::PopupCompletion);
+
+
+    ui->cbAnag->setCompleter(anacomp);
+
 
     ui->cbUm->setModelColumn(1);
     ui->cbUm->setModel(mum);
+    QCompleter *umcomp=new QCompleter(mum);
+    umcomp->setCompletionColumn(1);
+    umcomp->setCaseSensitivity(Qt::CaseInsensitive);
+    ui->cbUm->setCompleter(umcomp);
 
     ui->cbtipo->setModelColumn(1);
     ui->cbtipo->setModel(mtipi);
+    QCompleter *umtipi=new QCompleter(mtipi);
+    umtipi->setCompletionColumn(1);
+    umtipi->setCaseSensitivity(Qt::CaseInsensitive);
+    ui->cbtipo->setCompleter(umtipi);
 
 
 

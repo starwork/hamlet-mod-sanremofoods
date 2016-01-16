@@ -295,6 +295,7 @@ bool HnuovaOperazione::saveNewLot(QString nl)
     q.bindValue(":note",QVariant(note));
 
     b=q.exec();
+qDebug()<<"giacennza"<<QString::number(giacenza);
 
     if (b)
     {
@@ -304,7 +305,7 @@ bool HnuovaOperazione::saveNewLot(QString nl)
     else
     {
 
-     //   QMessageBox::warning(this,QApplication::applicationName(),"Errore salvando il nuovo lotto\n"+q.lastError().text()+"\n"+q.lastQuery(),QMessageBox::Ok);
+        QMessageBox::warning(this,QApplication::applicationName(),"Errore salvando il nuovo lotto\n"+q.lastError().text()+"\n"+q.lastQuery(),QMessageBox::Ok);
         ui->leNewLot->setText("Errore!!\n"+q.lastError().text());
 
     }
@@ -416,6 +417,7 @@ bool HnuovaOperazione::saveOperationCarico()
     q.exec();
     q.first();
     nuovolot=q.value(0).toString();
+qDebug()<<"nuovolot"<<nuovolot;
 
 
 
@@ -426,6 +428,7 @@ bool HnuovaOperazione::saveOperationCarico()
     if (!b)
     {
        QMessageBox::warning(this,QApplication::applicationName(),"Errore salvando il lotto",QMessageBox::Ok);
+       qDebug()<<q.lastError().text();
        return false;
 
     }

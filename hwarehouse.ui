@@ -17,7 +17,7 @@
    <string>Magazzino</string>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset resource="icons.qrc">
     <normaloff>:/Resources/modlots.png</normaloff>:/Resources/modlots.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
@@ -59,6 +59,9 @@
    </item>
    <item>
     <widget class="QTableView" name="tableView">
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
      <property name="selectionBehavior">
       <enum>QAbstractItemView::SelectRows</enum>
      </property>
@@ -133,7 +136,7 @@
         <string>Filtra</string>
        </property>
        <property name="icon">
-        <iconset resource="resources.qrc">
+        <iconset resource="icons.qrc">
          <normaloff>:/Resources/Search.PNG</normaloff>:/Resources/Search.PNG</iconset>
        </property>
        <property name="iconSize">
@@ -161,7 +164,7 @@
         <string>Nuova operazione</string>
        </property>
        <property name="icon">
-        <iconset resource="resources.qrc">
+        <iconset resource="icons.qrc">
          <normaloff>:/Resources/Actions-configure-icon.png</normaloff>:/Resources/Actions-configure-icon.png</iconset>
        </property>
        <property name="iconSize">
@@ -178,7 +181,7 @@
         <string>Salva</string>
        </property>
        <property name="icon">
-        <iconset resource="resources.qrc">
+        <iconset resource="icons.qrc">
          <normaloff>:/Resources/save-icon.png</normaloff>:/Resources/save-icon.png</iconset>
        </property>
        <property name="iconSize">
@@ -195,7 +198,7 @@
         <string>Chiudi</string>
        </property>
        <property name="icon">
-        <iconset resource="resources.qrc">
+        <iconset resource="icons.qrc">
          <normaloff>:/Resources/Actions-window-close-icon.png</normaloff>:/Resources/Actions-window-close-icon.png</iconset>
        </property>
        <property name="iconSize">
@@ -211,7 +214,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="resources.qrc"/>
+  <include location="icons.qrc"/>
  </resources>
  <connections/>
 </ui>

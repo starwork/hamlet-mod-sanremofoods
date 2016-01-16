@@ -3,7 +3,7 @@
  <class>HModifyLot</class>
  <widget class="QWidget" name="HModifyLot">
   <property name="windowModality">
-   <enum>Qt::NonModal</enum>
+   <enum>Qt::WindowModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -213,7 +213,7 @@
         <string>Salva</string>
        </property>
        <property name="icon">
-        <iconset resource="resources.qrc">
+        <iconset resource="icons.qrc">
          <normaloff>:/Resources/save-icon.png</normaloff>:/Resources/save-icon.png</iconset>
        </property>
        <property name="iconSize">
@@ -230,7 +230,7 @@
         <string>Chiudi</string>
        </property>
        <property name="icon">
-        <iconset resource="resources.qrc">
+        <iconset resource="icons.qrc">
          <normaloff>:/Resources/Actions-window-close-icon.png</normaloff>:/Resources/Actions-window-close-icon.png</iconset>
        </property>
        <property name="iconSize">
@@ -246,7 +246,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="resources.qrc"/>
+  <include location="icons.qrc"/>
  </resources>
  <connections/>
 </ui>

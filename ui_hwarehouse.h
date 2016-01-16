@@ -90,6 +90,7 @@ public:
 
         tableView = new QTableView(HWarehouse);
         tableView->setObjectName(QStringLiteral("tableView"));
+        tableView->setSelectionMode(QAbstractItemView::SingleSelection);
         tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
         tableView->setSortingEnabled(true);
         tableView->horizontalHeader()->setStretchLastSection(true);

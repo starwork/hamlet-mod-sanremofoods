@@ -48,7 +48,7 @@ private slots:
     void lastFiveLots();
     void productSelected();
   //  QList<QStandardItem*> addTableRow();
-    void getLotModel();
+   // void getLotModel();
     void lotSelected();
     void addLotProd();
     void addLotFuoriRicetta();
@@ -93,6 +93,6 @@ private slots:
     void on_radioButton_toggled(bool checked);
     void on_radioButton_2_toggled(bool checked);
     void on_radioButton_3_toggled(bool checked);
-};
+ };
 
 #endif // HPRODUCTION_H
