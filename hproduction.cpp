@@ -392,26 +392,26 @@ void HProduction::getLotToModify(QString lot)
 
 void HProduction::getRecipesForClient()
 {
-    int idcliente;
-    if (ui->checkBox->isChecked())
+    int idcliente=78;
+ /*   if (ui->checkBox->isChecked())
     {
         idcliente=ui->lvSubclienti->model()->index(ui->lvSubclienti->currentIndex().row(),0).data(0).toInt();
     }
     else
     {
         idcliente=ui->cbClienti->model()->index(ui->cbClienti->currentIndex(),0).data(0).toInt();
-    }
+    }*/
 
 
 
  //   QString qs="SELECT select prodotti.ID,ricette.ID,prodotti.descrizione from ricette,associazioni,prodotti,anagrafica where prodotti.ID=ricette.ID_prodotto and ricette.ID=associazioni.ID_ricetta and associazioni.ID_cliente=anagrafica.ID and associazioni.ID_cliente="+idcliente;
 //  QString qs="select ricette.ID,prodotti.ID,prodotti.descrizione from prodotti, ricette, associazioni where ricette.ID=associazioni.ID_ricetta and prodotti.ID=ricette.ID_prodotto and associazioni.visualizza=1 and associazioni.visualizza=1 and associazioni.ID_cliente=:idcliente";
 
-    QString qs="select ricette.ID,prodotti.ID,prodotti.descrizione from prodotti, ricette,tipi_prodotto  where  prodotti.ID=ricette.ID_prodotto and tipi_prodotto.ID=prodotti.tipo and tipi_prodotto.ID=:tipo";
+    QString qs="select ricette.ID,prodotti.ID,prodotti.descrizione from prodotti, ricette,tipi_prodotto  where  prodotti.ID=ricette.ID_prodotto and tipi_prodotto.ID=prodotti.tipo and tipi_prodotto.ID=:tipo order by prodotti.descrizione ASC";
 
     QSqlQuery q(db);
     q.prepare(qs);
-  //  q.bindValue(":idcliente",QVariant(idcliente));
+    q.bindValue(":idcliente",QVariant(idcliente));
     int tipo;
     if (ui->radioButton->isChecked())
     {
@@ -582,7 +582,7 @@ void HProduction::printProduction()
     title=ui->lbRicetta->text();
     title.append(" - ");
     title.append(ui->cbClienti->currentText());
-    title.append(QDate::currentDate().toString(" - dd\MM\yyyy"));
+    title.append(QDate::currentDate().toString(" - dd\\MM\\yyyy"));
 
 
     int rows=ui->tableView->model()->rowCount();
@@ -926,7 +926,8 @@ bool HProduction::saveNewLot(QString lot, int prodotto)
     QString giacenza=ui->leQtyTotal->text();
     QDate scadenza=ui->dateEdit->date();
 qDebug()<<scadenza.toString("yyyy-MM-dd");
-    QString anagrafica=ui->cbClienti->model()->index(ui->cbClienti->currentIndex(),0).data(0).toString();
+   // QString anagrafica=ui->cbClienti->model()->index(ui->cbClienti->currentIndex(),0).data(0).toString();
+    int anagrafica=78;
     QString lotf="PRODUZIONE";
     QString ean="";
     QString tipo="3"/*ui->cbTipoLotto->model()->index(ui->cbTipoLotto->currentIndex(),0).data(0).toString();*/;

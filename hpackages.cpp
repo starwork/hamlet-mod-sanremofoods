@@ -259,8 +259,8 @@ void HPackages::createNewLot()
 
 void HPackages::on_pbCrea_clicked()
 {
-    createNewLot();
-   // createNewLotInterno();
+   // createNewLot();
+    createNewLotInterno();
     mod=new QStandardItemModel();
     ui->tvPack->setModel(mod);
     ui->tvPack->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
@@ -440,6 +440,7 @@ db.transaction();
        return false;
 
    }
+   qDebug()<<"saveLot() ->saveNewLotinLotdef ok"<<lotto;
    int nlotid=getLastId();
 
 
@@ -452,6 +453,7 @@ db.transaction();
        db.rollback();
        return false;
    }
+   qDebug()<<"saveLot() ->chargeNewLot ok"<<QString::number(nlotid);
 
 //3.se il lotto è caricato, scarico i componenti
 
@@ -477,11 +479,11 @@ bool HPackages::saveNewLotInLotdef(QString lotto)
     QString sql;
     bool b;
 
-
+qDebug()<<"saveNewLotInLotedf1"<<lotto;
 
     QString idp=ui->cbProdotti->model()->index(ui->cbProdotti->currentIndex(),0).data(0).toString();
 
-    sql="INSERT INTO `lotdef`(`lot`,`prodotto`,`data`,`giacenza`,`um`,`scadenza`,`anagrafica`,`EAN`,`tipo`,`attivo`) values (:lot,:prodotto,:data,:giacenza,:um,:scadenza,:anagrafica,:ean,4,1)";
+    sql="INSERT INTO `lotdef`(`lot`,`prodotto`,`data`,`giacenza`,`um`,`scadenza`,`anagrafica`,`EAN`,`tipo`,`attivo`) values (:lot,:prodotto,:data,:giacenza,:um,:scadenza,:anagrafica,:ean,1,1)";
     q.prepare(sql);
     q.bindValue(":lot",QVariant(lotto));
     q.bindValue(":prodotto",QVariant(idp));
@@ -489,13 +491,13 @@ bool HPackages::saveNewLotInLotdef(QString lotto)
     q.bindValue(":giacenza",QVariant(ui->leQuantLot->text()));
     q.bindValue(":um",QVariant(1));
     q.bindValue(":scadenza",QVariant(ui->dateEdit->date()));
-    q.bindValue(":anagrafica",QVariant(ui->cbClienti->model()->index(ui->cbClienti->currentIndex(),0).data(0)));
+    q.bindValue(":anagrafica",QVariant(78));
     q.bindValue(":ean",QVariant(ui->leLest->text()));
+
 
     b = q.exec();
 
-qDebug()<<"saveNewLot"<<q.lastError().text();
-
+qDebug()<<"saveNewLotInLotedf2"<<q.lastError().text()<<lotto;
 
     return b;
 }
@@ -524,12 +526,12 @@ bool HPackages::chargeNewLot(int id)
          q.bindValue(":idprodotto",QVariant(idp));
          q.bindValue(":azione",QVariant(1));
          q.bindValue(":quantita",QVariant(quant));
-         q.bindValue(":um",QVariant(1));
+         q.bindValue("",QVariant(2));
          q.bindValue(":note",QVariant(note));
 
          b=q.exec();
 
-         qDebug()<<q.lastError().text()<<q.lastInsertId().toString()<<QString::number(idp);
+         qDebug()<<"chargenewlot"<<q.lastError().text()<<q.lastInsertId().toString()<<QString::number(id);
 
 
 

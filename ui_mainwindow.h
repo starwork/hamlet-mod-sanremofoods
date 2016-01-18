@@ -127,7 +127,7 @@ public:
         MainWindow->setPalette(palette);
         MainWindow->setCursor(QCursor(Qt::ArrowCursor));
         QIcon icon;
-        icon.addFile(QStringLiteral(":/Resources/My Network Places.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/Resources/hamlet.PNG"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
         MainWindow->setWindowOpacity(1);
         MainWindow->setAutoFillBackground(false);
@@ -168,7 +168,7 @@ public:
         label->setObjectName(QStringLiteral("label"));
         label->setMinimumSize(QSize(326, 256));
         label->setMaximumSize(QSize(256, 256));
-        label->setPixmap(QPixmap(QString::fromUtf8(":/Resources/My Network Places.png")));
+        label->setPixmap(QPixmap(QString::fromUtf8(":/Resources/hamlet.PNG")));
         label->setScaledContents(false);
 
         horizontalLayout->addWidget(label);
@@ -691,7 +691,7 @@ public:
         label_3->setText(QString());
         label_4->setText(QString());
         label->setText(QString());
-        label_2->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:20pt; font-weight:600;\">Hamlet Mod SF</span></p><p><span style=\" font-size:14pt; font-weight:600;\">Versione: 1.5.2</span></p><p><br/></p><p><span style=\" font-size:10pt; font-weight:600;\">Licenza:LGPL v. 3</span></p><p><span style=\" font-size:10pt; font-weight:600;\">Built with Qt 5.5.0 - MinGW 4.9.2</span></p><p><span style=\" font-size:10pt;\">FBLABS 2015</span></p></body></html>", 0));
+        label_2->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:20pt; font-weight:600;\">Hamlet Mod SF</span></p><p><span style=\" font-size:14pt; font-weight:600;\">Versione: 1.5.3</span></p><p><br/></p><p><span style=\" font-size:10pt; font-weight:600;\">Licenza:LGPL v. 3</span></p><p><span style=\" font-size:10pt; font-weight:600;\">Built with Qt 5.5.0 - MinGW 4.9.2</span></p><p><span style=\" font-size:10pt;\">FBLABS 2015</span></p></body></html>", 0));
         label_5->setText(QString());
         tbRicette->setText(QApplication::translate("MainWindow", "Ricette", 0));
         tnProduzione->setText(QApplication::translate("MainWindow", "Produzione", 0));
